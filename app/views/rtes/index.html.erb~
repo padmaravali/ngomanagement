@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Rtes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Place</th>
+      <th>Date</th>
+      <th>Organiser</th>
+      <th>Volunteer</th>
+      <th>School</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rtes.each do |rte| %>
+      <tr>
+        <td><%= rte.name %></td>
+        <td><%= rte.place %></td>
+        <td><%= rte.date %></td>
+        <td><%= rte.organiser %></td>
+        <td><%= rte.volunteer %></td>
+        <td><%= rte.school %></td>
+        <td><%= link_to 'Show', rte %></td>
+        <td><%= link_to 'Edit', edit_rte_path(rte) %></td>
+        <td><%= link_to 'Destroy', rte, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rte', new_rte_path %>

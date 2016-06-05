@@ -1,0 +1,69 @@
+<%= form_for @rte, :html => { :class => "form-horizontal rte" } do |f| %>
+
+  <% if @rte.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@rte.errors.count, "error") %> prohibited this rte from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @rte.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:name) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :place, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :place, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:place) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :date, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :date, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:date) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :organiser, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :organiser, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:organiser) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :volunteer, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :volunteer, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:volunteer) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :school, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :school, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:school) %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                rtes_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+
+<% end %>
